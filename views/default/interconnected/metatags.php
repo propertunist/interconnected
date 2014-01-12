@@ -82,19 +82,13 @@ if($description) { ?>
 <meta property="og:title" content="<?php echo $item_title; ?>" />
 <meta property="og:url" content="<?php echo $url; ?>" />
 <meta property="og:image" content="<?php echo $icon_url; ?>" />
-<?php if ($size){ ?>
 <meta property="og:image:type" content="<?php echo $size['mime']; ?>" />
 <meta property="og:image:width" content="<?php echo $size[0]; ?>" />
 <meta property="og:image:height" content="<?php echo $size[1]; ?>" />
-<?php } ?>
-<!--<meta property="og:image" content="<?php echo $default_site_logo; ?>" />-->
 <meta property="og:image:secure_url" content="<?php echo $icon_url; ?>" />
-<?php if ($size){ ?>
 <meta property="og:image:type" content="<?php echo $size['mime']; ?>" />
 <meta property="og:image:width" content="<?php echo $size[0]; ?>" />
 <meta property="og:image:height" content="<?php echo $size[1]; ?>" />
-<?php } ?>
-<!--<meta property="og:image:secure_url" content="<?php echo $default_site_logo; ?>" />-->
 
 <?php if ($max_meta_keywords > 0) 
 { ?>
