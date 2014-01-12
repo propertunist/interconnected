@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin_manifest xmlns="http://www.elgg.org/plugin_manifest/1.8">
+	<name>interconnected</name>
+	<author>ura soul</author>
+	<version>0.1</version>
+	<description>for social sharing without bloatage</description>
+	<website>https://www.infiniteeureka.com</website>
+	<license>GNU Public License version 2</license>
+ 
+	<requires>
+		<type>elgg_release</type>
+		<version>1.8</version>
+	</requires>
+	<suggests>
+    	<type>plugin</type>
+    	<name>profile_manager</name>
+    </suggests>
+	<suggests>
+    	<type>priority</type>
+   		<priority>after</priority>
+    	<plugin>profile_manager</plugin>
+    </suggests>    
+	<category>Communication</category>
+	<admin_interface>advanced</admin_interface>
+</plugin_manifest>
