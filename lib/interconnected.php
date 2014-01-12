@@ -49,7 +49,9 @@
         $full_size = 'master';     
                       
      /*****************************/
-    
+
+        $current_user = elgg_get_logged_in_user_entity();
+         
         $site_logo = elgg_get_plugin_setting('site_logo', 'interconnected');
         if ($site_logo == '')
             $site_logo = $current_user->getIconURL($size);
@@ -67,9 +69,7 @@
         $aboutme = elgg_get_plugin_setting('about_me', 'interconnected');
         
         $group_description = elgg_get_plugin_setting('group_description', 'interconnected'); 
-    
-        $current_user = elgg_get_logged_in_user_entity();
-    
+   
         $context = elgg_get_context();
         $url = current_page_url(); 
         $url_array = interconnected_analyze_url($url);

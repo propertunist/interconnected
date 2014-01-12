@@ -57,7 +57,7 @@ todo:
 
 * could add a settings page for each user to allow them to write their default greeting or signature for messages sent to external sharing services.
 * setting option to choose whether to share internal urls for videos/bookmarks or to share source urls. e.g. share youtube videos directly or share elgg page. 
-* add more target sites
+* add more target sites (tumblr coming soon)
 * integrate wire functionality to allow wire posts to be auto-shared to multiple target sites.
 * integrate multi-access functionality to upgrade thewire to allow posts to be made to multiple subsets of users, rather than only to public. 
 * auto-share option for new items (requires extension/over-riding of 'add' forms - and/or a hook).
