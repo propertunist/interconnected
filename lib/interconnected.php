@@ -62,7 +62,7 @@
         if ($default_title == '')
             $default_title = $sitename;    
         
-        $twitter_handle = elgg_get_plugin_setting('twitter_handle', 'interconnected'); 
+        $content['twitter_handle'] = elgg_get_plugin_setting('twitter_handle', 'interconnected'); 
         
         $aboutme = elgg_get_plugin_setting('about_me', 'interconnected');
         
