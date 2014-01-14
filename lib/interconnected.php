@@ -128,7 +128,6 @@
                 if ($access_id_string != 'public')
                 {
                     $content['access_denied'] = TRUE;
-                    return $content;
                 } 
              
                 switch ($subtype)
