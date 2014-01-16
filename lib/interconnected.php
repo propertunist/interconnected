@@ -54,12 +54,17 @@
          
         $site_logo = elgg_get_plugin_setting('site_logo', 'interconnected');
         if ($site_logo == '')
-            $site_logo = $current_user->getIconURL($size);
+        {
+            if (elgg_is_logged_in())
+                $site_logo = $current_user->getIconURL($size);
+        }
         
         $full_site_logo = elgg_get_plugin_setting('full_site_logo', 'interconnected');
         if ($full_site_logo == '')
+        {
+            if (elgg_is_logged_in())
             $full_site_logo = $current_user->getIconURL($full_size);
-        
+        }
         $default_title = elgg_get_plugin_setting('default_title', 'interconnected');
         if ($default_title == '')
             $default_title = $sitename;    
@@ -158,9 +163,15 @@
                         if ($subtype=='album')
                         {    
                             $cover_guid = $entity->getCoverImageGuid();
-                            $cover_entity = get_entity($cover_guid);
-                            $icon_url = $cover_entity->getIconURL($size);
-                            $full_icon_url = $cover_entity->getIconURL($full_size);
+                            if ($cover_guid)
+                            {
+                                $cover_entity = get_entity($cover_guid);
+                                if ($cover_entity)
+                                {
+                                    $icon_url = $cover_entity->getIconURL($size);
+                                    $full_icon_url = $cover_entity->getIconURL($full_size);
+                                }
+                            }
                         }
                         else 
                         {
