@@ -1,10 +1,10 @@
 <?php
 /**
- * simply sharing function library for elgg
+ * interconnected function library for elgg
  * 
  * @license GNU Public License version 2
  * @author ura soul 
- * @website infiniteeureka.com* 
+ * @website infiniteeureka.com 
  */
 
  function interconnected_analyze_url($url) {
@@ -125,7 +125,7 @@
                 $access_id = $entity->access_id;
                 $access_id_string = get_readable_access_level($access_id);
     
-                if ($access_id_string != 'public')
+                if (($access_id_string != 'Public')&&($access_id_string != 'public'))
                 {
                     $content['access_denied'] = TRUE;
                 } 
