@@ -62,7 +62,7 @@
 
     $vars['url'] = $url;
     
-    if (isset($keywords))
+    if ($keywords)
     {
         foreach ($keywords as $index => $keyword)
         {
