@@ -102,7 +102,7 @@
                     $url = $site_url . $handler . '/view/' . $url_array['guid']; // set the shared url to be the view mode url and not edit or another mode which is unsuitable for sharing
             }
             
-            if (isset($tags)) //if the current item has tags
+            if ($tags) //if the current item has tags
             {
                 if (is_array($tags)) //if the current item has more than 1 tag
                 {   

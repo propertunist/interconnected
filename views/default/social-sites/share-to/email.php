@@ -9,7 +9,7 @@
     if ($vars['description'])
         $vars['description'] = $vars['description'] . NEW_LINE;      
     
-    $vars['button'] = '<a target="_blank" href="mailto:?subject=' . $vars['item_title'] . '&body=' . elgg_echo('interconnected:emailbody', array($vars['subtext'],$vars['description'],$vars['url'])) . '"><div class="elgg-button-share elgg-button elgg-button-email">' . elgg_echo('interconnected:email') . '</div></a>';
+    $vars['button'] = '<a target="_blank" href="mailto:?subject=' . $vars['item_title'] . '&body=' . elgg_echo('interconnected:emailbody', array($vars['subtext'],$vars['description'],$vars['url'])) . '"><div class="elgg-button-share elgg-button elgg-button-email">' . elgg_echo ('interconnected:email') . '<div class="elgg-sharing-logo"></div></div></a>';
     
     echo $vars['button'];
     return true;
