@@ -1,12 +1,16 @@
 .elgg-sharing-wrapper-simple
 {
-    margin-bottom:20px;
-    margin-left:20px;  
+    margin-bottom:10px;
+    margin-left:20px;
+    clear:both;
+    text-align:left;  
 }
 
 .elgg-sharing-wrapper-simple, .elgg-sharing-wrapper-simple > label
 {
-    padding-right:5px;
+    font-size: 0.9em;
+    vertical-align: top;
+    padding-right:6px;
 }
 
 .elgg-sharing-wrapper
@@ -14,12 +18,13 @@
     display:inline-block;    
     margin:0 !important;
     list-style:none!important;
+    padding:0px!important;
 }
 .elgg-sharing-wrapper li
 {
     float:left;
     margin-right: 8px;
-    margin-top: 11px;
+    margin-bottom: 11px;
 }
 .elgg-button-share{
     background-size: contain!important;
