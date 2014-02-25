@@ -96,7 +96,7 @@
             $subtype = $entity->getSubtype();
             $tags = $entity->tags;
             
-            if (($url_array['handler_segments'][0] != 'view')&&($url_array['handler_segments'][0] != $url_array['guid'])) // check url structure to see if it is view mode or not
+            if ((($url_array['handler_segments'][0] != 'view')&&($url_array['handler_segments'][0] != 'watch'))&&($url_array['handler_segments'][0] != $url_array['guid'])) // check url structure to see if it is view mode or not
             {
                if ($url_array['handler_segments'][0] != 'album') //tidypics album paths are non-standard
                     $url = $site_url . $handler . '/view/' . $url_array['guid']; // set the shared url to be the view mode url and not edit or another mode which is unsuitable for sharing
