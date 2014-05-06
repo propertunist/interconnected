@@ -19,13 +19,14 @@
     
 
                   
-    $item_title = $INTERCONNECTED_PAGE_DATA['item_title'];
-    $subtext = $INTERCONNECTED_PAGE_DATA['subtext'];
-    $description = $INTERCONNECTED_PAGE_DATA['description'];
+    $item_title = elgg_get_excerpt($INTERCONNECTED_PAGE_DATA['item_title'],250);
+    $subtext = elgg_get_excerpt($INTERCONNECTED_PAGE_DATA['subtext'],250);
+    $description = elgg_get_excerpt($INTERCONNECTED_PAGE_DATA['description'],250);
     $icon_url = $INTERCONNECTED_PAGE_DATA['icon_url'];
     $full_icon_url = $INTERCONNECTED_PAGE_DATA['full_icon_url'];
     $url = $INTERCONNECTED_PAGE_DATA['url'];
     $twitter_handle = $INTERCONNECTED_PAGE_DATA['twitter_handle'];
+    $button_size = $INTERCONNECTED_PAGE_DATA['button_size'];
  
     // clean fields ready for html output
 
@@ -58,11 +59,15 @@
                      'twitter_handle' => $twitter_handle,
                      'item_title' => $item_title,
                      'subtext' => $subtext,
-                     'description' => $description);
+                     'description' => $description,
+                     'button_size' => $button_size,
+                     //'counts' => interconnected_get_counts(current_page_url()),
+                     );
 
     $body = '<ul class="elgg-sharing-wrapper">';
     foreach ($social_sites as $social_site)
     {
+        $options['social_site'] = $social_site;
         switch ($social_site)
         {
             case 'pinterest':

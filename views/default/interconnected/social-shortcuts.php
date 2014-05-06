@@ -18,7 +18,7 @@
     {
         $vars['profile_url'] = '';
         $vars['target'] = '';
-        if (isset($owner->$social_profile))
+        if ($owner->$social_profile)
         {
             $profile_url_array = parse_url(strip_tags(filter_tags($owner->$social_profile)));
             if ($profile_url_array['host'] == $base_url)

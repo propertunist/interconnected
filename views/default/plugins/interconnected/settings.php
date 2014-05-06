@@ -13,6 +13,24 @@
         $twitter_handle = '';
         elgg_set_plugin_setting('twitter_handle',$twitter_handle);
     }     
+    
+    $facebook_handle = elgg_get_plugin_setting('facebook_handle', 'interconnected');
+    if (!$facebook_handle) {
+        $facebook_handle = '';
+        elgg_set_plugin_setting('facebook_handle',$facebook_handle);
+    }      
+
+    $googleplus_handle = elgg_get_plugin_setting('googleplus_handle', 'interconnected');
+    if (!$googleplus_handle) {
+        $googleplus_handle = '';
+        elgg_set_plugin_setting('googleplus_handle',$googleplus_handle);
+    }   
+
+    $youtube_handle = elgg_get_plugin_setting('youtube_handle', 'interconnected');
+    if (!$youtube_handle) {
+        $youtube_handle = '';
+        elgg_set_plugin_setting('youtube_handle',$youtube_handle);
+    }  
 
     $about_me = elgg_get_plugin_setting('about_me', 'interconnected');
     if (!$about_me) {
@@ -50,6 +68,12 @@
         elgg_set_plugin_setting('max_meta_description',$max_meta_description);
     } 
     
+    $button_size = elgg_get_plugin_setting('button_size', 'interconnected');
+    if (!$button_size) {
+        $button_size = 'small';
+        elgg_set_plugin_setting('button_size',$button_size);
+    }     
+    
 	echo "<h4>";
 	echo elgg_echo('interconnected:admin:title:social');
 	echo "</h4><br/>";
@@ -61,10 +85,27 @@
     echo "<br />";    
     echo elgg_view('input/text', array('name'=>'params[full_site_logo]', 'value'=>$full_site_logo));    
     echo "<br /><br/>";
+    
     echo '<label>' . elgg_echo('interconnected:admin:twitter-handle') . ':' . '</label>';
     echo "<br />";    
     echo elgg_view('input/text', array('name'=>'params[twitter_handle]', 'value'=>$twitter_handle));        
     echo "<br /><br/>";
+    
+    echo '<label>' . elgg_echo('interconnected:admin:facebook-handle') . ':' . '</label>';
+    echo "<br />";    
+    echo elgg_view('input/text', array('name'=>'params[facebook_handle]', 'value'=>$facebook_handle));        
+    echo "<br /><br/>";
+    
+    echo '<label>' . elgg_echo('interconnected:admin:googleplus-handle') . ':' . '</label>';
+    echo "<br />";    
+    echo elgg_view('input/text', array('name'=>'params[googleplus_handle]', 'value'=>$googleplus_handle));        
+    echo "<br /><br/>";
+    
+    echo '<label>' . elgg_echo('interconnected:admin:youtube-handle') . ':' . '</label>';
+    echo "<br />";    
+    echo elgg_view('input/text', array('name'=>'params[youtube_handle]', 'value'=>$youtube_handle));        
+    echo "<br /><br/>";    
+    
     echo '<label>' . elgg_echo('interconnected:admin:about-me') . ':' . '</label>';
     echo "<br />";    
     echo elgg_view('input/text', array('name'=>'params[about_me]', 'value'=>$about_me));  
@@ -81,22 +122,33 @@
     echo '<label>' . elgg_echo('interconnected:admin:default-title') . ':' . '</label>';
     echo "<br />";    
     echo elgg_view('input/text', array('name'=>'params[default_title]', 'value'=>$default_title));  
-    echo "<br />"; 
+    echo "<br /><br />"; 
  
     echo '<label>' . elgg_echo('interconnected:admin:default-meta-keywords') . ':' . '</label>';
     echo "<br />";    
     echo elgg_view('input/text', array('name'=>'params[default_meta_keywords]', 'value'=>$default_meta_keywords));  
-    echo "<br />";
+    echo "<br /><br />";
 
     echo '<label>' . elgg_echo('interconnected:admin:max-meta-keywords') . ':' . '</label>';
     echo "<br />";    
     echo elgg_view('input/text', array('name'=>'params[max_meta_keywords]', 'value'=>$max_meta_keywords));  
-    echo "<br />";
+    echo "<br /><br />";
     
     echo '<label>' . elgg_echo('interconnected:admin:max-meta-description') . ':' . '</label>';
     echo "<br />";    
     echo elgg_view('input/text', array('name'=>'params[max_meta_description]', 'value'=>$max_meta_description));  
+    echo "<br /><br />";    
+        
+    echo '<label>' . elgg_echo('interconnected:admin:button_size') . ':' . '</label>';
     echo "<br />";    
-                    
+    echo elgg_view('input/dropdown', array(
+                        'name' => 'params[button_size]',
+                        'value' => $button_size,
+                        'options_values' => array(
+                                'small' => elgg_echo('interconnected:admin:option:small'),
+                                'large' => elgg_echo('interconnected:admin:option:large'),
+                        ),
+                ));
+    echo "<br />";                     
 ?>	
 </div>

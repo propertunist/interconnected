@@ -5,6 +5,7 @@ $english = array(
 	'interconnected:profile:share' => "Share this profile using",
     'interconnected:no-share' => "This item cannot be shared yet",
     'interconnected:profile-on' => "%s's profile on %s",
+    'interconnected:share_count' => "total shares of this page on %s: %s",
     'interconnected:my-profiles' => "My profiles",
 	'interconnected:access-denied' => "Only items with an access/privacy level of <i>public</i> and blogs that are <i>published</i> are accessible outside of the community.",
 	'interconnected:twitter' => 'Twitter',  
@@ -40,6 +41,8 @@ $english = array(
     'interconnected:title:about' => 'About',
     'interconnected:groups' => 'Groups',
     'interconnected:members' => 'Members',
+    'interconnected:followus-on' => 'Follow us on %s',
+    'interconnected:title:followus' => 'Follow us on ',
     'interconnected:rootpage:title:activity' => 'Activity at ' . $sitename,
     'interconnected:rootpage:title:members' => 'Members at ' . $sitename,
     'interconnected:rootpage:title:groups' => 'Groups at ' . $sitename,
@@ -94,12 +97,20 @@ $english = array(
     'interconnected:admin:site-logo' => 'a complete (absolute) url for your site logo (version: small image)',
     'interconnected:admin:full-site-logo' => 'a complete (absolute) url for your site logo (version: full size image - recommended 600px wide)',    
     'interconnected:admin:twitter-handle' => '(optional) a twitter handle/id that you use for your site (when pages shared using twitter, the tweet will end with - via @your-twitter-handle)',
+    'interconnected:admin:facebook-handle' => '(optional) a facebook page url that you use for your site.',
+    'interconnected:admin:googleplus-handle' => '(optional) a google+ profile url that you use for your site.',
+    'interconnected:admin:youtube-handle' => '(optional) a youtube profile url that you use for your site.',   
+    'interconnected:admin:followus-footer' => 'show social media \'follow us\' links in site footer?', 
     'interconnected:admin:about-me' => "the name of the field the contains the user's <i>about me</i> profile information on your site (default is <i>description</i>)",
     'interconnected:admin:group-description' => "the name of the field the contains the <i>description</i> field for your site's groups (default is <i>briefdescription</i>)",
     'interconnected:admin:default-title' => "an opengraph (og:title) title to be used when sharing pages that do not have a specific title - generally this will only be for your homepage and does not effect the main html title for the page.",
     'interconnected:admin:default-meta-keywords' => "a comma seperated list of keywords to use as default in the metatag section of the page head when no better options are available. e.g. social network,community,sharing",
     'interconnected:admin:max-meta-keywords' => "the maximum amount of keywords to display on any page (enter an integer that is greater than or equal to 0)",
     'interconnected:admin:max-meta-description' => "the maximum amount of characters to be used in the metatag description for each page (enter an integer that is greater than or equal to 0 - 160 is recommended)",
+    'interconnected:admin:button_size' => "the size of the sharing buttons to be displayed.",
+    'interconnected:admin:option:small' => "small - icons only",
+    'interconnected:admin:option:large' => "large - icons + text",
+    
 );
 add_translation("en", $english);
 ?>

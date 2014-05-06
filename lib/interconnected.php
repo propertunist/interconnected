@@ -7,6 +7,38 @@
  * @website infiniteeureka.com 
  */
 
+function interconnected_get_counts($url){
+    
+    if ($url)
+    {
+        $app_id = 'appID=' . 'v7JUl2UxgA2mC4YjHl0j06z8' . '&'; // set this in admin panel
+        $url = 'http://api.aljtmedia.com/social/?' . $app_id . 'url=' . $url;
+    
+    
+http://api.aljtmedia.com/social/?appID=v7JUl2UxgA2mC4YjHl0j06z8&url=https://www.infiniteeureka.com/
+         # Setup cURL
+        $curl = curl_init();
+        
+        # URL to call
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
+        
+        # Get the response
+        $response = curl_exec($curl);
+        
+        # Close connection
+        curl_close($curl);
+        
+        # Return JSON
+        return json_decode($response, true);
+    }
+    else {
+        return false;
+    }
+ 
+} 
+ 
  function interconnected_analyze_url($url) {
 
     if (!class_exists('UFCOE\\Elgg\\Url')) {
@@ -75,6 +107,12 @@
         
         $group_description = elgg_get_plugin_setting('group_description', 'interconnected'); 
    
+        $button_size = elgg_get_plugin_setting('button_size', 'interconnected');
+        if ($button_size)
+            $content['button_size'] = $button_size;
+        else
+            $content['button_size'] = $button_size='large';
+   
         $context = elgg_get_context();
         $url = current_page_url(); 
         $url_array = interconnected_analyze_url($url);
@@ -127,14 +165,7 @@
             else
             {
                 $item_title = $entity->title;
-                $access_id = $entity->access_id;
-                $access_id_string = get_readable_access_level($access_id);
-    
-                if (($access_id_string != 'Public')&&($access_id_string != 'public'))
-                {
-                    $content['access_denied'] = TRUE;
-                } 
-             
+
                 switch ($subtype)
                 {
                     case 'blog':
@@ -177,6 +208,8 @@
                         {
                             $icon_url = $entity->getIconURL($size);
                             $full_icon_url = $entity->getIconURL($full_size);
+                            $album_entity = get_entity($entity->container_guid);
+                            $access_id = $album_entity->access_id;
                         }
                         $description = $entity->description;
                         $subtext = elgg_echo('interconnected:' . $subtype) .' ' . $author . '... ';
@@ -202,7 +235,16 @@
                         $type = 'article';
                         break;
                     }
-                }  
+                }
+                if (!$access_id)
+                    $access_id = $entity->access_id;
+                $access_id_string = get_readable_access_level($access_id);
+    
+                if (($access_id_string != 'Public')&&($access_id_string != 'public'))
+                {
+                    $content['access_denied'] = TRUE;
+                } 
+               
             }
     
         }
