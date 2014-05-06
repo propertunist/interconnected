@@ -108,6 +108,7 @@ $english = array(
     'interconnected:admin:max-meta-keywords' => "the maximum amount of keywords to display on any page (enter an integer that is greater than or equal to 0)",
     'interconnected:admin:max-meta-description' => "the maximum amount of characters to be used in the metatag description for each page (enter an integer that is greater than or equal to 0 - 160 is recommended)",
     'interconnected:admin:button_size' => "the size of the sharing buttons to be displayed.",
+    'interconnected:admin:footer_follow' => "display a set of 'follow us' links above the footer of every page?",
     'interconnected:admin:option:small' => "small - icons only",
     'interconnected:admin:option:large' => "large - icons + text",
     

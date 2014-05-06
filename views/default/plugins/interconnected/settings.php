@@ -74,6 +74,12 @@
         elgg_set_plugin_setting('button_size',$button_size);
     }     
     
+    $footer_follow = elgg_get_plugin_setting('footer_follow', 'interconnected');
+    if (!$footer_follow) {
+        $button_size = false;
+        elgg_set_plugin_setting('footer_follow',$footer_follow);
+    }       
+    
 	echo "<h4>";
 	echo elgg_echo('interconnected:admin:title:social');
 	echo "</h4><br/>";
@@ -138,6 +144,16 @@
     echo "<br />";    
     echo elgg_view('input/text', array('name'=>'params[max_meta_description]', 'value'=>$max_meta_description));  
     echo "<br /><br />";    
+
+    echo '<label>' . elgg_echo('interconnected:admin:footer_follow') . ':' . '</label>';
+    echo "<br />";    
+    echo elgg_view('input/dropdown', array(
+                        'name' => 'params[footer_follow]',
+                        'value' => $footer_follow,
+                        'options_values' => array(
+                                false => elgg_echo('option:no'),
+                                true => elgg_echo('option:yes'))));
+    echo "<br /><br/>"; 
         
     echo '<label>' . elgg_echo('interconnected:admin:button_size') . ':' . '</label>';
     echo "<br />";    

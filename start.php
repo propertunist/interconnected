@@ -24,6 +24,8 @@ function interconnected_init() {
       	elgg_extend_view('profile/details','interconnected/profile',500);
         elgg_extend_view('widgets/set_description/content', 'interconnected/simple', 500);
 	}
+    if (elgg_get_plugin_setting('footer_follow', 'interconnected') == TRUE)
+        elgg_extend_view('page/elements/footer', 'interconnected/followus', 0);
 
     if (elgg_is_active_plugin('profile_manager'))
         elgg_extend_view('profile/owner_block', 'interconnected/social-shortcuts',500);
