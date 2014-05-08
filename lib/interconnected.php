@@ -238,9 +238,8 @@ http://api.aljtmedia.com/social/?appID=v7JUl2UxgA2mC4YjHl0j06z8&url=https://www.
                 }
                 if (!$access_id)
                     $access_id = $entity->access_id;
-                $access_id_string = get_readable_access_level($access_id);
     
-                if (($access_id_string != 'Public')&&($access_id_string != 'public'))
+                if ($access_id != 2)
                 {
                     $content['access_denied'] = TRUE;
                 } 
