@@ -17,10 +17,13 @@ foreach($target_sites as $site)
             $href = 'https://www.twitter.com/' . $site_handle;
         else
             $href = $site_handle;
-        $output .= elgg_view('output/url', array('href'=>$href,
-                                                 'text'=>elgg_view('output/img', array('src'=> elgg_get_site_url(). 'mod/interconnected/graphics/' . $site . '.png',
-                                                                                       'alt'=> elgg_echo('interconnected:followus-on', array($site)),
-                                                                                       'title' => elgg_echo('interconnected:followus-on', array($site))))));
+            $output .= elgg_view('output/url', array('href'=>$href,
+               'rel'=>'publisher',
+               'text'=>elgg_view('output/img', array('src'=> elgg_get_site_url(). 'mod/interconnected/graphics/' . $site . '.png',
+               'alt'=> elgg_echo('interconnected:followus-on', array($site)),
+               'height' => 32,
+               'width' => 32,
+               'title' => elgg_echo('interconnected:followus-on', array($site))))));
         $to_output = TRUE;
     }
     $count++;

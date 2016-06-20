@@ -4,11 +4,7 @@
         $label = $title;
     else 
         $label = '';
-
-     $vars['button'] = '<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?s=100&p[title]=' . $vars['item_title'] . '&p[summary]=' . $vars['description'] . '&p[url]=' . $vars['url'] . '&p[images][0]=' . $vars['icon_url'] . '" title="' . $title . '"><div class="elgg-button-share-' . $vars['button_size'] . ' elgg-button elgg-button-facebook">' . $label . '<div class="elgg-sharing-logo-' . $vars['button_size'] . '"></div></div></a>';
+    
+     $vars['button'] = '<a target="_blank" rel="nofollow" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[title]=' . urlencode($vars['item_title']) . '&amp;p[summary]=' . urlencode($vars['description']) . '&amp;p[url]=' . urlencode($vars['url']) . '&amp;p[images][0]=' . urlencode($vars['icon_url']) . '" title="' . $title . '"><div class="elgg-button-share-wrapper"><div class="elgg-button-share-' . $vars['button_size'] . ' elgg-button elgg-button-facebook" data-service="fb_shares">' . $label . '<div class="elgg-sharing-logo-' . $vars['button_size'] . '"></div></div></div></a>';
     echo $vars['button'];
-    if ((int)$vars['counts']['facebook']['share_count'] > 0)
-        echo '<div class="elgg-share-count" title="' . elgg_echo('interconnected:share_count', array($vars['social_site'],$vars['counts']['facebook']['share_count'])) . '">' . $vars['counts']['facebook']['share_count'] . '</div><div class="elgg-share-count-arrow">◄</div>';
-
     return true;
-?>

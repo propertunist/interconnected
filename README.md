@@ -30,6 +30,7 @@ features:
 * supports the pagehandler_hijack plugin feature of changing the url path of different parts of the site.
 * supports the donation modules.
 * if entities are shared from an edit page or non 'view' mode page, the resulting url will point to the 'view' version of the page.
+* grabs opengraph data (images, title and description) for bookmarks and integrates bookmark thumbnails into all revelant bookmark areas.
 
 install:
 

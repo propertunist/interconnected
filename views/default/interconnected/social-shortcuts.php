@@ -6,7 +6,8 @@
                              'googleplus'=>'plus.google.com',
                              'youtube'=>'www.youtube.com',
                              'linkedin' => 'www.linkedin.com',
-                             'infiniteeureka' => 'www.infiniteeureka.com');
+                             'ureka' => 'www.ureka.org',
+                             'soundcloud' => 'soundcloud.com');
 
     $i = 0;   
     $title = elgg_echo('interconnected:my-profiles');
@@ -35,4 +36,3 @@
     {
         echo $body;
     }
-?>

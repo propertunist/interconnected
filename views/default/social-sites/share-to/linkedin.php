@@ -5,11 +5,26 @@
     else 
         $label = '';
 
+    if ($vars['item_title'])
+    {
+        $vars['item_title'] = html_entity_decode ($vars['item_title'] . ': ', ENT_QUOTES);
+        $item_title = '&text=' . rawurlencode($vars['item_title']);
+    }
 
-    $vars['button'] = '<a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=' . $vars['url'] . '&title='. $vars['item_title'] . '&summary=' . $vars['subtext'] . $vars['description'] . '&source=' . $vars['url'] . '" title="' . $title . '"><div class="elgg-button-share-' . $vars['button_size'] . ' elgg-button elgg-button-linkedin">' . $label . '<div class="elgg-sharing-logo-' . $vars['button_size'] . '"></div></div></a>';
+    if ($vars['subtext'])
+    {
+        $vars['subtext'] = html_entity_decode ($vars['subtext'], ENT_QUOTES);
+        $subtext = rawurlencode($vars['subtext']);
+    }
+
+    if ($vars['description'])
+    {
+        $vars['description'] = html_entity_decode ($vars['description'], ENT_QUOTES);
+        $description = rawurlencode($vars['description']);
+    }
+    
+    $vars['button'] = '<a target="_blank" rel="nofollow" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=' . urlencode($vars['url']) . '&amp;title='. $item_title . '&amp;summary=' . $subtext . $description . '&amp;source=' . urlencode($vars['url']) . '" title="' . $title . '"><div class="elgg-button-share-wrapper"><div class="elgg-button-share-' . $vars['button_size'] . ' elgg-button elgg-button-linkedin" data-service="linked_shares">' . $label . '<div class="elgg-sharing-logo-' . $vars['button_size'] . '"></div></div></div></a>';
     
     echo $vars['button'];
-    if ((int)$vars['counts']['linkedin']> 0)
-        echo '<div class="elgg-share-count" title="' . elgg_echo('interconnected:share_count', array($vars['social_site'],$vars['counts']['linkedin'])) . '">' . $vars['counts']['linkedin'] . '</div><div class="elgg-share-count-arrow">◄</div>';
+
     return true;
-?>

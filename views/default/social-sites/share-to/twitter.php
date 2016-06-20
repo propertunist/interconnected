@@ -1,4 +1,5 @@
 <?php
+
     $title = elgg_echo('interconnected:twitter');
     if ($vars['button_size'] == 'large')
         $label = $title;
@@ -6,16 +7,23 @@
         $label = ''; 
 
     if ($vars['item_title'])
-        $vars['item_title'] = $vars['item_title'] . NEW_LINE;
- 
-    $vars['button'] = '<a target="_blank" href="https://twitter.com/intent/tweet?text=' . $vars['item_title'] . $vars['subtext'] . '&url=' . $vars['url'];
-    if ($vars['twitter_handle'])
-        $vars['button'].= '&via=' . $vars['twitter_handle'];
-    $vars['button'] .= '" title="' . $title . '"><div class="elgg-button-share-' . $vars['button_size'] . ' elgg-button elgg-button-twitter">' . $label . '<div class="elgg-sharing-logo-' . $vars['button_size'] . '"></div></div></a>';
+    {
+        $vars['item_title'] = html_entity_decode ($vars['item_title'] . ': ', ENT_QUOTES);
+        $twitter_string = '&text=' . rawurlencode($vars['item_title']);
+    }
+    
+    $twitter_handle = '&via=' . rawurlencode($vars['twitter_handle']);
+    
+    $vars['button'] = '<a target="_blank" rel="nofollow" href="https://twitter.com/intent/tweet?url=' . rawurlencode($vars['url']);
+    
+    if ($twitter_string)
+        $vars['button'] .= $twitter_string;
+    
+    if (($twitter_handle)&&((strlen($twitter_string) + strlen($vars['twitter_handle']) <= 140)))
+        $vars['button'].= $twitter_handle;
+    
+    $vars['button'] .= '" title="' . urlencode($title) . '"><div class="elgg-button-share-wrapper"><div class="elgg-button-share-' . $vars['button_size'] . ' elgg-button elgg-button-twitter" data-service="tw_shares">' . rawurlencode($label) . '<div class="elgg-sharing-logo-' . $vars['button_size'] . '"></div></div></div></a>';
     
     echo $vars['button'];
-    if ((int)$vars['counts']['twitter']> 0)
-        echo '<div class="elgg-share-count" title="' . elgg_echo('interconnected:share_count', array($vars['social_site'],$vars['counts']['twitter'])) . '">' . $vars['counts']['twitter'] . '</div><div class="elgg-share-count-arrow">◄</div>';
     
     return true;
-?>
